@@ -1,14 +1,12 @@
 package Vehicle;
 
-public class Vehicle {
+public abstract class Vehicle {
     private String brand;
     private double value;
-    private String model;
 
-    public Vehicle(String brand, double value, String model) {
+    public Vehicle(String brand, double value) {
         this.brand = brand;
         this.value = value;
-        this.model = model;
     }
 
     public String getBrand() {
@@ -19,16 +17,11 @@ public class Vehicle {
         return value;
     }
 
-    public String getModel() {
-        return model;
-    }
-
     @Override
     public String toString() {
         return "Vehicle{" +
                 "brand='" + brand + '\'' +
                 ", value=" + value +
-                ", model='" + model + '\'' +
                 '}';
     }
 }
