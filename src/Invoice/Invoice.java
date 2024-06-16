@@ -6,7 +6,7 @@ public class Invoice {
 
     //This is initial class structure, subject to change
     private String customerName;
-    private LocalDate dateOfInvoice = LocalDate.now();
+    private LocalDate dateOfInvoice;
     private String rentedVehicle;
 
     private LocalDate reservationStartDate;
@@ -24,6 +24,29 @@ public class Invoice {
     private double totalInsurance;
 
     private double totalPayment;
+
+    public Invoice(String customerName, LocalDate dateOfInvoice,
+                   String rentedVehicle, LocalDate reservationStartDate,
+                   LocalDate reservationEndDate, int rentalPeriod, LocalDate actualReturnDate,
+                   String rentalDays, double rentalCostPerDay, double initialInsurance,
+                   double insuranceAdditionPerDay, double insurancePerDay, double totalRent,
+                   double totalInsurance, double totalPayment) {
+        this.customerName = customerName;
+        this.dateOfInvoice = dateOfInvoice;
+        this.rentedVehicle = rentedVehicle;
+        this.reservationStartDate = reservationStartDate;
+        this.reservationEndDate = reservationEndDate;
+        this.rentalPeriod = rentalPeriod;
+        this.actualReturnDate = actualReturnDate;
+        this.rentalDays = rentalDays;
+        this.rentalCostPerDay = rentalCostPerDay;
+        this.initialInsurance = initialInsurance;
+        this.insuranceAdditionPerDay = insuranceAdditionPerDay;
+        this.insurancePerDay = insurancePerDay;
+        this.totalRent = totalRent;
+        this.totalInsurance = totalInsurance;
+        this.totalPayment = totalPayment;
+    }
 
     public String getCustomerName() {
         return customerName;
