@@ -14,23 +14,39 @@ public class Invoice {
     private int rentalPeriod;
 
     private LocalDate actualReturnDate;
-    private String rentalDays;
+    private long rentalDays;
 
     private double rentalCostPerDay;
     private double initialInsurance;
-    private double insuranceAdditionPerDay;
     private double insurancePerDay;
     private double totalRent;
     private double totalInsurance;
 
     private double totalPayment;
 
-    public Invoice(String customerName, LocalDate dateOfInvoice,
-                   String rentedVehicle, LocalDate reservationStartDate,
-                   LocalDate reservationEndDate, int rentalPeriod, LocalDate actualReturnDate,
-                   String rentalDays, double rentalCostPerDay, double initialInsurance,
-                   double insuranceAdditionPerDay, double insurancePerDay, double totalRent,
-                   double totalInsurance, double totalPayment) {
+    public Invoice(String customerName, LocalDate dateOfInvoice, String rentedVehicle,
+                   LocalDate reservationStartDate, LocalDate reservationEndDate, int rentalPeriod,
+                   LocalDate actualReturnDate, long rentalDays, double rentalCostPerDay, double insurancePerDay,
+                   double totalRent, double totalInsurance, double totalPayment) {
+        this.customerName = customerName;
+        this.dateOfInvoice = dateOfInvoice;
+        this.rentedVehicle = rentedVehicle;
+        this.reservationStartDate = reservationStartDate;
+        this.reservationEndDate = reservationEndDate;
+        this.rentalPeriod = rentalPeriod;
+        this.actualReturnDate = actualReturnDate;
+        this.rentalDays = rentalDays;
+        this.rentalCostPerDay = rentalCostPerDay;
+        this.insurancePerDay = insurancePerDay;
+        this.totalRent = totalRent;
+        this.totalInsurance = totalInsurance;
+        this.totalPayment = totalPayment;
+    }
+
+    public Invoice(String customerName, LocalDate dateOfInvoice, String rentedVehicle,
+                   LocalDate reservationStartDate, LocalDate reservationEndDate, int rentalPeriod,
+                   LocalDate actualReturnDate, long rentalDays, double rentalCostPerDay, double initialInsurance,
+                   double insurancePerDay, double totalRent, double totalInsurance, double totalPayment) {
         this.customerName = customerName;
         this.dateOfInvoice = dateOfInvoice;
         this.rentedVehicle = rentedVehicle;
@@ -41,7 +57,6 @@ public class Invoice {
         this.rentalDays = rentalDays;
         this.rentalCostPerDay = rentalCostPerDay;
         this.initialInsurance = initialInsurance;
-        this.insuranceAdditionPerDay = insuranceAdditionPerDay;
         this.insurancePerDay = insurancePerDay;
         this.totalRent = totalRent;
         this.totalInsurance = totalInsurance;
@@ -104,11 +119,11 @@ public class Invoice {
         this.actualReturnDate = actualReturnDate;
     }
 
-    public String getRentalDays() {
+    public long getRentalDays() {
         return rentalDays;
     }
 
-    public void setRentalDays(String rentalDays) {
+    public void setRentalDays(long rentalDays) {
         this.rentalDays = rentalDays;
     }
 
@@ -126,18 +141,6 @@ public class Invoice {
 
     public void setInitialInsurance(double initialInsurance) {
         this.initialInsurance = initialInsurance;
-    }
-
-    public double getInsuranceAdditionPerDay() {
-        return insuranceAdditionPerDay;
-    }
-
-    public void setInsuranceAdditionPerDay(double insuranceAdditionPerDay) {
-        this.insuranceAdditionPerDay = insuranceAdditionPerDay;
-    }
-
-    public double getInsurancePerDay() {
-        return insurancePerDay;
     }
 
     public void setInsurancePerDay(double insurancePerDay) {
@@ -170,22 +173,20 @@ public class Invoice {
 
     @Override
     public String toString() {
-        return "Invoice{" +
-                "customerName='" + customerName + '\'' +
-                ", dateOfInvoice=" + dateOfInvoice +
-                ", rentedVehicle='" + rentedVehicle + '\'' +
-                ", reservationStartDate=" + reservationStartDate +
-                ", reservationEndDate=" + reservationEndDate +
-                ", rentalPeriod=" + rentalPeriod +
-                ", actualReturnDate=" + actualReturnDate +
-                ", rentalDays='" + rentalDays + '\'' +
-                ", rentalCostPerDay=" + rentalCostPerDay +
-                ", initialInsurance=" + initialInsurance +
-                ", insuranceAdditionPerDay=" + insuranceAdditionPerDay +
-                ", insurancePerDay=" + insurancePerDay +
-                ", totalRent=" + totalRent +
-                ", totalInsurance=" + totalInsurance +
-                ", totalPayment=" + totalPayment +
-                '}';
+        return "Invoice" +
+                "\ncustomerName='" + customerName + '\'' +
+                "\n, dateOfInvoice=" + dateOfInvoice +
+                "\n, rentedVehicle='" + rentedVehicle + '\'' +
+                "\n, reservationStartDate=" + reservationStartDate +
+                "\n, reservationEndDate=" + reservationEndDate +
+                "\n, rentalPeriod=" + rentalPeriod +
+                "\n, actualReturnDate=" + actualReturnDate +
+                "\n, rentalDays='" + rentalDays + '\'' +
+                "\n, rentalCostPerDay=" + rentalCostPerDay +
+                "\n, initialInsurance=" + initialInsurance +
+                "\n, insurancePerDay=" + insurancePerDay +
+                "\n, totalRent=" + totalRent +
+                "\n, totalInsurance=" + totalInsurance +
+                "\n, totalPayment=" + totalPayment;
     }
 }
