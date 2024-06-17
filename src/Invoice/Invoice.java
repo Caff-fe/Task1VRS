@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 public class Invoice {
 
-    //This is initial class structure, subject to change
     private String customerName;
     private LocalDate dateOfInvoice;
     private String rentedVehicle;

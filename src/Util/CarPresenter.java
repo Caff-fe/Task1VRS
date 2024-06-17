@@ -16,11 +16,12 @@ public class CarPresenter {
         LocalDate startDate = LocalDate.parse("2024-06-03");
         LocalDate endDate = LocalDate.parse("2024-06-13");
         long daysBetween = ChronoUnit.DAYS.between(startDate, endDate);
-        int rentalDays = 10;
+        int rentalDays = (int) daysBetween;
 
         LocalDate actualReturnDate = LocalDate.of(2024, 6, 13);
         long actualDays = ChronoUnit.DAYS.between(startDate, actualReturnDate);
         double rentalCostPerDay;
+        double totalInsurance;
         if (actualDays > 7) {
             car.setDailyRental(15.00);
             rentalCostPerDay = car.getDailyRental();
@@ -28,9 +29,15 @@ public class CarPresenter {
             rentalCostPerDay = car.getDailyRental();
         }
         double insurancePerDay = car.getValue() * car.getInsuranceCost();
+        double totalRent;
+        if (actualDays == rentalDays) {
+            totalRent = rentalDays * rentalCostPerDay;
+            totalInsurance = actualDays * insurancePerDay;
+        } else {
+            totalRent = (actualDays * rentalCostPerDay) + ((rentalDays - actualDays) * (rentalCostPerDay / 2));
+            totalInsurance = (actualDays * insurancePerDay) - (daysBetween - actualDays);
+        }
 
-        double totalRent = actualDays * rentalCostPerDay;
-        double totalInsurance = actualDays * insurancePerDay;
         if (car.getSecurityRating() >= 3) {
             totalInsurance = totalInsurance - (totalInsurance * 0.1);
         }
