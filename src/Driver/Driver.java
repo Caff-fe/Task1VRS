@@ -26,7 +26,7 @@ public class Driver {
     @Override
     public String toString() {
         return "Driver{" +
-                "name='" + name + '\'' +
+                "name='" + name +
                 ", age=" + age +
                 ", yearsOfExperience=" + yearsOfExperience +
                 '}';
